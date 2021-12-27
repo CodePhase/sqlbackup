@@ -117,7 +117,7 @@ function configRun {
     esac
   done
 
-  if [ ! "${pwd}" ]; then
+  if [ -z "${pwd}" ]; then
     echo "SQL User $sqlUser password not supplied. Aborting" >/dev/stderr
     exit 1
   fi
