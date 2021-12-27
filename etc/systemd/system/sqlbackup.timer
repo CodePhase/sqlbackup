@@ -1,0 +1,8 @@
+[Unit]
+Description=Run regular automatic mariadb backups
+
+[Install]
+WantedBy=multi-user.target podman.service
+
+[Timer]
+OnCalendar=*-*-* 02:30:00

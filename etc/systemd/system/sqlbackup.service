@@ -1,0 +1,10 @@
+[Unit]
+Description=Run automated mariadb server backups
+
+[Install]
+WantedBy=multiuser.target podman.service
+
+[Service]
+Type=oneshot
+ExecStartPre=sh -c 'podman ps --format "{{.Names}}" | grep -q ^sql$'
+ExecStart=podman exec --user 999 sql /backups/sqlbackup.sh
